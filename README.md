@@ -24,7 +24,7 @@ Civitai 的接口和图片都在国内连不上的域名上，这个插件的做
 
 ## 安装
 
-**方式一（推荐，开箱即用）**：从 [Releases](../../releases) 下载完整包，解压到 `ComfyUI/custom_nodes/`，重启 ComfyUI。
+**方式一（推荐，开箱即用）**：从 [Releases](https://github.com/Crystalqk/ComfyUI-CivitaiHub/releases/latest) 下载完整包，解压到 `ComfyUI/custom_nodes/`，重启 ComfyUI。
 
 **方式二（源码）**：`git clone` 本仓库到 `ComfyUI/custom_nodes/`，重启 ComfyUI。
 本仓库**不含** `web/covers/`（368 MB、23813 个文件，不适合放进 git），所以首屏封面会走代理、一张约 1 秒。想要秒出图就用方式一。
