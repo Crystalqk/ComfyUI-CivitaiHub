@@ -512,7 +512,7 @@ const BUNDLED_KEYS = new Map();
 const BUNDLED_BASE = "/extensions/ComfyUI-CivitaiHub/covers/";
 // Shown in the title so it is obvious whether the browser loaded this build or
 // a cached one. Bump when the bundle changes.
-const BUILD_ID = "d20";
+const BUILD_ID = "d21";
 console.log("[CivitaiHub] build", BUILD_ID, "cover base", BUNDLED_BASE);
 
 function bundledUrl(origin, width) {
@@ -1056,9 +1056,18 @@ class HubPanel {
       // and silently forced a full rebuild (losing the scroll position).
       let grid = this.content.querySelector(".hub-grid");
       if (!grid) {
+        // No grid means another view (settings, local files, the detail error
+        // page) wrote its own markup straight into this container and took the
+        // grid with it. Inserting a fresh grid ahead of that markup left the
+        // settings form — API key, fourteen directory rows — stacked underneath
+        // a single card, and the load sentinel got appended past all of it, so
+        // scrolling to the bottom looked like it never loaded anything.
+        // Clear first. Safe: the detail layer is a child of .hub-body, not of
+        // .hub-content, so nothing here can detach it or lose its open state.
+        this.content.innerHTML = "";
         grid = document.createElement("div");
         grid.className = "hub-grid";
-        this.content.insertBefore(grid, this.content.firstChild);
+        this.content.appendChild(grid);
       }
       grid.innerHTML = cards;
     } else {
@@ -1070,8 +1079,11 @@ class HubPanel {
       }
     }
 
-    const more = this.content.querySelector(".hub-more");
-    if (more) more.remove();
+    // The spinner used to be called .hub-more; cleanup kept querying that name
+    // while insertion wrote .hub-sentinel, so every render appended one more
+    // sentinel and removed nothing. Six filter changes left six spinners stacked
+    // at the bottom of the list, and only the oldest one was ever observed.
+    this.content.querySelectorAll(".hub-more, .hub-sentinel").forEach((el) => el.remove());
     const canMore = s.nextCursor || s.hasMore || (s.totalPages && s.page < s.totalPages);
     if (canMore) {
       this.content.insertAdjacentHTML("beforeend",

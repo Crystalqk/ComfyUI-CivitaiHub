@@ -14,3 +14,7 @@ web/covers/
 _backup/
 
 *.log
+
+# Build output. The distributable zip is published as a Release asset, not
+# committed: it is ~338 MB, well past GitHub's per-file limit.
+*.zip
