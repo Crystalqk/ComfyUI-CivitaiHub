@@ -1,0 +1,54 @@
+{
+  "api_mirrors": [
+    "https://civitai.red",
+    "https://civitai.work"
+  ],
+  "image_proxies": [
+    "wsrv.nl",
+    "images.weserv.nl"
+  ],
+  "b2_endpoints": [
+    "f004.backblazeb2.com"
+  ],
+  "http_proxy": "",
+  "civitai_api_key": "",
+  "civitai_cookie": "",
+  "nsfw": true,
+  "thumb_width": 450,
+  "max_concurrent_downloads": 2,
+  "download_segments": 64,
+  "save_subdir": "",
+  "save_dirs": {
+    "LORA": "loras",
+    "LoCon": "loras",
+    "DoRA": "loras",
+    "Checkpoint": "checkpoints",
+    "TextualInversion": "embeddings",
+    "Controlnet": "controlnet",
+    "Hypernetwork": "hypernetworks",
+    "AestheticGradient": "loras",
+    "Poses": "poses",
+    "Wildcards": "wildcards",
+    "Workflows": "workflows",
+    "MotionModule": "animatediff_models",
+    "VAE": "vae",
+    "Upscaler": "upscale_models"
+  },
+  "fallback_folder": "loras",
+  "accounts": {
+    "liblib": {
+      "access_key": "",
+      "secret_key": "",
+      "cookie": "",
+      "api_base": "https://openapi.liblibai.cloud",
+      "model_list_path": "/api/v1/model/list"
+    },
+    "tusi": {
+      "access_key": "",
+      "secret_key": "",
+      "cookie": "",
+      "api_base": "https://api.tusiart.cn",
+      "model_list_path": "/api/v1/model/list"
+    }
+  }
+}

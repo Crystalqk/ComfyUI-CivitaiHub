@@ -1,0 +1,16 @@
+# Runtime state — regenerated on first run
+cache/
+__pycache__/
+*.pyc
+
+# Holds the user's API key / cookie. Copy config.example.json instead.
+config.json
+
+# 23k bundled cover JPEGs (~370 MB). Built locally by the plugin; also shipped
+# as a GitHub Release asset.
+web/covers/
+
+# Local source snapshots taken before big edits
+_backup/
+
+*.log
