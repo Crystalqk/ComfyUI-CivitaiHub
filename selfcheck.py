@@ -1,10 +1,10 @@
 """Self-check for ComfyUI-CivitaiHub.
 
 Run this with ComfyUI's own interpreter to verify the three network hops work
-from the current machine:
+from the current machine (Windows syntax; use your own paths):
 
-    D:\\ComfyUI-aki-v3\\ComfyUI-aki-v3\\python\\python.exe ^
-        D:\\ComfyUI-aki-v3\\ComfyUI-aki-v3\\ComfyUI\\custom_nodes\\ComfyUI-CivitaiHub\\selfcheck.py
+    <ComfyUI>\\python_embeded\\python.exe ^
+        <ComfyUI>\\ComfyUI\\custom_nodes\\ComfyUI-CivitaiHub\\selfcheck.py
 
 It never writes into models/; the download probe only fetches the first 256 KB.
 """
